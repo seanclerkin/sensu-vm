@@ -1,0 +1,8 @@
+forge "http://forge.puppetlabs.com"
+
+mod 'spiette/selinux', '0.5.4'
+mod 'puppetlabs/rabbitmq', '3.1.0'
+mod 'arioch/redis', '0.0.7'
+mod 'sensu/sensu', '1.0.0'
+mod 'stahnma/epel', '0.0.6'
+mod 'puppetlabs/firewall', '1.0.2'
