@@ -10,8 +10,10 @@ Vagrant.configure("2") do |config|
   
   config.vm.provision :shell, :inline => "gem install open3_backport"
   config.vm.provision :shell, :path => "init.sh", :args => "--role monitoring --environment prod1 --site eu-west-1a --repouser seanclerkin --reponame sensu-vm"
-  config.vm.network :forwarded_port, guest: 80, host: 8080
-
+  config.vm.network :forwarded_port, guest: 8080, host: 8080
+  config.vm.network :forwarded_port, guest: 55672, host: 55672
+  config.vm.network :forwarded_port, guest: 15672, host: 55672
+  
   config.vm.provider :virtualbox do |vb|
       vb.gui = true      
   end

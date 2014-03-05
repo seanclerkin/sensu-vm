@@ -11,7 +11,8 @@ class sensu::sensu::server {
 										 $check_interval,
 										 $subscription_channels){
 			file {"/etc/sensu/conf.d/${name}.json":
-		    content => template("sensu/sensu/check_alert.json.erb")
+		    content => template("sensu/sensu/check_alert.json.erb"),
+        mode => 755
 	    }
 	}
 
@@ -20,7 +21,8 @@ class sensu::sensu::server {
 										 $check_interval,
 										 $subscription_channels){
 			file {"/etc/sensu/conf.d/${name}.json":
-		    content => template("sensu/sensu/check_metric.json.erb")
+		    content => template("sensu/sensu/check_metric.json.erb"),
+        mode => 755
 	    }
 	}
 
@@ -117,38 +119,38 @@ class sensu::sensu::server {
 		subscription_channels => '"all"',
 	}
 
-  file {'/etc/sensu/conf.d/pagerduty.json':
-    content  => template('sensu/sensu/handlers/notification/pagerduty.json')
-  }
+  # file {'/etc/sensu/conf.d/pagerduty.json':
+  #   content  => template('sensu/sensu/handlers/notification/pagerduty.json')
+  # }
 
-  file {'/etc/sensu/handlers/pagerduty.rb':
-    source  => "puppet:///modules/sensu/sensu/handlers/notification/pagerduty.rb"
-  }
+  # file {'/etc/sensu/handlers/pagerduty.rb':
+  #   source  => "puppet:///modules/sensu/sensu/handlers/notification/pagerduty.rb"
+  # }
 
-  file {'/etc/sensu/conf.d/handler_pagerduty.json':
-    source => "puppet:///modules/sensu/sensu/handlers/notification/handler_pagerduty.json"
-  }
+  # file {'/etc/sensu/conf.d/handler_pagerduty.json':
+  #   source => "puppet:///modules/sensu/sensu/handlers/notification/handler_pagerduty.json"
+  # }
 
-  file {'/etc/sensu/conf.d/mailer.json':
-    content  => template('sensu/sensu/handlers/notification/mailer.json.erb')
-  }
+  # file {'/etc/sensu/conf.d/mailer.json':
+  #   content  => template('sensu/sensu/handlers/notification/mailer.json.erb')
+  # }
 
-  file {'/etc/sensu/handlers/mailer.rb':
-    source  => "puppet:///modules/sensu/sensu/handlers/notification/mailer.rb"
-  }
+  # file {'/etc/sensu/handlers/mailer.rb':
+  #   source  => "puppet:///modules/sensu/sensu/handlers/notification/mailer.rb"
+  # }
 
-  file {'/etc/sensu/conf.d/handler_mailer.json':
-    source => "puppet:///modules/sensu/sensu/handlers/notification/handler_mailer.json"
-  }
-  file {'/etc/sensu/conf.d/graphite.json':
-    content => template('sensu/sensu/handlers/metrics/graphite.json.erb')
-  }
+  # file {'/etc/sensu/conf.d/handler_mailer.json':
+  #   source => "puppet:///modules/sensu/sensu/handlers/notification/handler_mailer.json"
+  # }
+  # file {'/etc/sensu/conf.d/graphite.json':
+  #   content => template('sensu/sensu/handlers/metrics/graphite.json.erb')
+  # }
 
-  file {'/etc/sensu/handlers/graphite-tcp.rb':
-    source => "puppet:///modules/sensu/sensu/handlers/metrics/graphite-tcp.rb"
-  }
+  # file {'/etc/sensu/handlers/graphite-tcp.rb':
+  #   source => "puppet:///modules/sensu/sensu/handlers/metrics/graphite-tcp.rb"
+  # }
 
-  file {'/etc/sensu/conf.d/handler_graphite.json':
-    source => "puppet:///modules/sensu/sensu/handlers/notification/handler_graphite.json"
-  }
+  # file {'/etc/sensu/conf.d/handler_graphite.json':
+  #   source => "puppet:///modules/sensu/sensu/handlers/notification/handler_graphite.json"
+  # }
 }

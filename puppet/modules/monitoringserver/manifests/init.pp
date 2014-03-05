@@ -3,12 +3,16 @@
 #
 class monitoringserver {
   contain epel
-  contain sensu
   contain firewall
+  contain sensu::sensuserver
+  contain sensu::sensuclient
+  
+  Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
 
   Class['firewall'] ->
   Class['epel'] ->
-  Class['sensu']
+  Class['sensu::sensuserver'] -> 
+  Class['sensu::sensuclient']
 
   Firewall {
     before  => Class['my_fw::post'],
@@ -19,6 +23,18 @@ class monitoringserver {
 
   firewall { '100 allow 8080 access':
     port   => [8080],
+    proto  => tcp,
+    action => accept,
+  }
+
+  firewall { '101 allow 15672 access':
+    port   => [15672],
+    proto  => tcp,
+    action => accept,
+  }
+
+  firewall { '101 allow 55672 access':
+    port   => [55672],
     proto  => tcp,
     action => accept,
   }

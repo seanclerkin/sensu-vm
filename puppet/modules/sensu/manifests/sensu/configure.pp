@@ -9,8 +9,6 @@ class sensu::sensu::configure {
 	include client
 	include server
 
-	$messagebroker_host = extlookup("messagebroker_host")
-
 	file {'/etc/sensu/config.json':
 		content => template("sensu/sensu/config.json.erb")
 	}
