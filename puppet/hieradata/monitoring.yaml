@@ -2,4 +2,4 @@ classes:
   - monitoringserver
   - my_fw::pre
   - my_fw::post
-  - sensu
+  - sensu::sensuserver 
