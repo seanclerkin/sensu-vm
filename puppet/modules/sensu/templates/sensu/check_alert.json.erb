@@ -1,0 +1,10 @@
+{
+    "checks": {
+		"<%= name %>_check": {
+		"handlers": ["<%= handler_name %>"],
+		"command": "<%= check_command %>",
+				"interval": <%= check_interval %>,
+				"subscribers": [ <%= subscription_channels %> ]
+      }
+    }
+}

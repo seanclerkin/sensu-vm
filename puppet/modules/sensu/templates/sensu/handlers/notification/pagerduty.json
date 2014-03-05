@@ -1,0 +1,6 @@
+{
+  "pagerduty": {
+    "api_key": "<%= pagerduty_api_key %>",
+    "api_timeout_seconds": 15
+  }
+}

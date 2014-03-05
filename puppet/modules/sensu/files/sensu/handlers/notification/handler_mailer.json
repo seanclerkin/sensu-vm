@@ -1,0 +1,12 @@
+{
+  "handlers": {
+    "mailer": {
+      "type": "pipe",
+      "command": "mail -s 'EasyCheckout Sensu Alert' sysadminteam@moneysupermarket.com",
+      "severities": [
+        "critical",
+        "ok"
+      ]
+    }
+  }
+}
