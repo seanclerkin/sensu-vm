@@ -19,7 +19,7 @@ class monitoringserver {
     require => Class['my_fw::pre'],
   }
 
-  class { ['msm_fw::pre', 'msm_fw::post']: }
+  class { ['my_fw::pre', 'my_fw::post']: }
 
   firewall { '100 allow 8080 access':
     port   => [8080],

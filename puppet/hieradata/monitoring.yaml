@@ -1,7 +1,7 @@
 classes:
   - monitoringserver
-  - msm_fw::pre
-  - msm_fw::post
+  - my_fw::pre
+  - my_fw::post
 selinux::mode: "permissive"
 rabbitmq::admin_enable: true
 sensu::rabbitmq_password: secret
