@@ -4,6 +4,7 @@ classes:
   - my_fw::post
 selinux::mode: "permissive"
 rabbitmq::admin_enable: true
+rabbitmq::package_provider: "yum"
 sensu::rabbitmq_password: secret
 sensu::server: true
 sensu::dashboard: true
