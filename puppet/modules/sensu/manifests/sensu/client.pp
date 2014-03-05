@@ -17,7 +17,8 @@ class sensu::sensu::client {
 
   file {'/etc/sensu/plugins/':
 		source  => 'puppet:///modules/sensu/sensu/checks',
-		recurse => true;
+		recurse => true,
+		mode => 755,
 	}
 
 }
