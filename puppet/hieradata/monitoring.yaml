@@ -3,7 +3,6 @@ classes:
   - my_fw::pre
   - my_fw::post
 selinux::mode: "permissive"
-rabbitmq::admin_enable: true
 rabbitmq::package_provider: "yum"
 redis::manage_repo: true
 sensu::rabbitmq_password: secret
