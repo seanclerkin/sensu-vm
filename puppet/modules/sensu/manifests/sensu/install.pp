@@ -11,4 +11,21 @@ class sensu::sensu::install {
     require => Yumrepo["sensu-main"]
   }
 
+  package { "ruby-devel":
+    ensure => installed,
+  }
+      
+  package { "rubygems":
+    ensure  => installed,
+    require => Package["ruby-devel"],
+  }
+
+  exec { "install_sensu-plugin_gem_${name}":
+    command     => "su - root -c \"gem install --no-rdoc --no-ri sensu-plugin\"",
+    unless      => "gem list | grep sensu-plugin",
+    provider    => shell,
+    logoutput   => true,
+    require     => Package["rubygems"],
+  }
+
 }
