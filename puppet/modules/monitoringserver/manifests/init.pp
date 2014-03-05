@@ -4,6 +4,8 @@
 class monitoringserver {
   contain epel
   contain firewall
+  contain sensu::redis
+  contain sensu::rabbitmq
   contain sensu::sensuserver
   contain sensu::sensuclient
   
@@ -11,6 +13,8 @@ class monitoringserver {
 
   Class['firewall'] ->
   Class['epel'] ->
+  Class['sensu::redis'] -> 
+  Class['sensu::rabbitmq'] -> 
   Class['sensu::sensuserver'] -> 
   Class['sensu::sensuclient']
 
