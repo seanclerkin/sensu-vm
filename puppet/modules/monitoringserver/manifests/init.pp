@@ -37,7 +37,7 @@ class monitoringserver {
     action => accept,
   }
 
-  firewall { '101 allow 55672 access':
+  firewall { '102 allow 55672 access':
     port   => [55672],
     proto  => tcp,
     action => accept,
