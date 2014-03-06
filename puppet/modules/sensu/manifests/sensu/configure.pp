@@ -1,4 +1,5 @@
-class sensu::sensu::configure {
+class sensu::sensu::configure ($rabittmq_host = "localhost",
+															 $redis_host = "localhost"){
 
 	File{
 		require => Class['sensu::sensu::install'],

@@ -1,2 +1,4 @@
 classes:
   - monitoringserver
+sensu::sensu::configure::rabbitmq_host: "localhost"
+sensu::sensu::configure::redis_host: "localhost"
