@@ -1,4 +1,4 @@
-class sensu::sensu::configure ($rabittmq_host = "localhost",
+class sensu::sensu::configure ($rabbitmq_host = "localhost",
 															 $redis_host = "localhost"){
 
 	File{
